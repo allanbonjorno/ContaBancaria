@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoSantoAndre.Model;
+using System;
 
 namespace BancoSantoAndre01
 {
@@ -11,7 +12,16 @@ namespace BancoSantoAndre01
         {
 
             int opcao;
-
+            Conta c1 = new Conta(1, 123, 1, "Allan", 1000000.00M);
+            Console.WriteLine(c1.GetTitular());
+            c1.Visualizar();
+            c1.SetNumero(345);
+            c1.Visualizar();
+            c1.Sacar(1000);
+            c1.Visualizar();
+            c1.Depositar(5000);
+            c1.Visualizar();
+            Console.WriteLine(c1.GetNumero());
             while (true)
             {
                 Console.BackgroundColor = ConsoleColor.Black;
