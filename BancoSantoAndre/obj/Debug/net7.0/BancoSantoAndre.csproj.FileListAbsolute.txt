@@ -1,0 +1,15 @@
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\bin\Debug\net7.0\BancoSantoAndre.exe
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\bin\Debug\net7.0\BancoSantoAndre.deps.json
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\bin\Debug\net7.0\BancoSantoAndre.runtimeconfig.json
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\bin\Debug\net7.0\BancoSantoAndre.dll
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\bin\Debug\net7.0\BancoSantoAndre.pdb
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.csproj.AssemblyReference.cache
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.AssemblyInfoInputs.cache
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.AssemblyInfo.cs
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.csproj.CoreCompileInputs.cache
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.dll
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\refint\BancoSantoAndre.dll
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.pdb
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\BancoSantoAndre.genruntimeconfig.cache
+C:\Users\Carlos\OneDrive\Área de Trabalho\Conta Bancária - PROJETO C#\BancoSantoAndre\obj\Debug\net7.0\ref\BancoSantoAndre.dll

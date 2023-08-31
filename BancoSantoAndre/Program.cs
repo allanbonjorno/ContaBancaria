@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        private static ConsoleKeyInfo consoleKeyInfo;
         static void Main(string[] args)
 
 
@@ -41,6 +42,7 @@
                 opcao = Convert.ToInt32(Console.ReadLine());
                 if (opcao == 9)
                 {
+                    
                     Console.WriteLine("Você saiu!");
                     System.Environment.Exit(0);
                 }
