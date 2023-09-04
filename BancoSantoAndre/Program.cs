@@ -1,4 +1,5 @@
-﻿using BancoSantoAndre.Model;
+﻿using BancoSantoAndre.Controller;
+using BancoSantoAndre.Model;
 using System;
 using System.Security.Cryptography;
 
@@ -12,27 +13,13 @@ namespace BancoSantoAndre01
         static void Main(string[] args)
         {
 
-            int opcao;
-            /*Conta c1 = new Conta(1, 123, 1, "Allan", 1000000.00M);
-            Console.WriteLine(c1.GetTitular());
-            c1.Visualizar();
-            c1.SetNumero(310001);
-            c1.Visualizar();
-            c1.Sacar(1000);
-            c1.Visualizar();
-            c1.Depositar(5000);
-            c1.Visualizar();
-            Console.WriteLine(c1.GetNumero()); */
-            ContaCorrente cc1 = new ContaCorrente(310001, 31, 1, "TIKA", 50000, 200);
-            Console.WriteLine(cc1.GetTitular());
-            cc1.Visualizar();
-            cc1.Sacar(50199);
-            cc1.Visualizar();
-            ContaPoupanca cc2 = new ContaPoupanca(310001, 31, 2, "TIKA", 50000, "31/07/1998");
-            cc2.Visualizar();
+            int opcao, agencia, tipo, aniversario;
+            string? titular;
+            decimal saldo, limite;
+            ContaController contas = new();
+            ContaCorrente c1 = new ContaCorrente(contas.GerarNumero(), 1, 123, "Allan", 1000000.00M);
 
-
-
+            ContaPoupanca cp1 = new ContaPoupanca(contas.GerarNumero(), 310001, 1, "TIKA", 50000, 200);
 
             while (true)
             {
@@ -79,86 +66,121 @@ namespace BancoSantoAndre01
                         Console.WriteLine("Criar Conta\n\n");
                         Console.ResetColor();
 
-                        KeyPress();
-                        break;
+                        Console.Write("Digite o número da Agência: ");
+                        agencia = Convert.ToInt32(Console.ReadLine());
+
+                        Console.Write("Digite o nome do Titular: ");
+                        titular = Console.ReadLine();
+                        titular ??= string.Empty;
+
+                        Console.Write("Digite o saldo da Conta: ");
+                        saldo = Convert.ToInt32(Console.ReadLine());
+
+                        do
+                        {
+                            Console.Write("Digite o tipo da Conta: ");
+                            tipo = Convert.ToInt32(Console.ReadLine());
+                        } while (tipo != 1 && tipo != 2);
+
+                            switch (tipo)
+                            {
+                                case 1:
+                                    Console.WriteLine("Digite o Limite da conta:");
+                                    limite = Convert.ToDecimal(Console.ReadLine());
+                                    contas.Cadastrar(new ContaCorrente(contas.GerarNumero(), agencia, tipo, titular, saldo, limite));
+                                    
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Digite o aniversário da conta: ");
+                                    aniversario = Convert.ToInt32(Console.ReadLine());
+                                    contas.Cadastrar(new ContaPoupanca(contas.GerarNumero(), agencia, tipo, titular, saldo, aniversario));
+
+                                    break;
+                            }
+
+                            KeyPress();
+                            break;
+
+
                     case 2:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Listar todas as Contas\n\n");
-                        Console.ResetColor();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Listar todas as Contas\n\n");
+                                Console.ResetColor();
+                                contas.ListarTodas();
 
-                        KeyPress();
-                        break;
-                    case 3:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Consultar dados da Conta - por número\n\n");
-                        Console.ResetColor();
+                                KeyPress();
+                                break;
+                            case 3:
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Consultar dados da Conta - por número\n\n");
+                                Console.ResetColor();
 
-                        KeyPress();
-                        break;
-                    case 4:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Atualizar dados da Conta\n\n");
-                        Console.ResetColor();
+                                KeyPress();
+                                break;
+                            case 4:
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Atualizar dados da Conta\n\n");
+                                Console.ResetColor();
 
-                        KeyPress();
-                        break;
-                    case 5:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Apagar a Conta\n\n");
-                        Console.ResetColor();
+                                KeyPress();
+                                break;
+                            case 5:
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Apagar a Conta\n\n");
+                                Console.ResetColor();
 
-                        KeyPress();
-                        break;
-                    case 6:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Saque\n\n");
-                        Console.ResetColor();
+                                KeyPress();
+                                break;
+                            case 6:
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Saque\n\n");
+                                Console.ResetColor();
 
-                        KeyPress();
-                        break;
-                    case 7:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Depósito\n\n");
-                        Console.ResetColor();
+                                KeyPress();
+                                break;
+                            case 7:
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Depósito\n\n");
+                                Console.ResetColor();
 
-                        KeyPress();
-                        break;
-                    case 8:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Transferência entre Contas\n\n");
-                        Console.ResetColor();
+                                KeyPress();
+                                break;
+                            case 8:
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Transferência entre Contas\n\n");
+                                Console.ResetColor();
 
-                        KeyPress();
-                        break;
-                    default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nOpção Inválida!\n");
-                        Console.ResetColor();
+                                KeyPress();
+                                break;
+                            default:
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("\nOpção Inválida!\n");
+                                Console.ResetColor();
 
-                        KeyPress();
-                        break;
+                                KeyPress();
+                                break;
+                            }
+                        }
+        }
+
+                static void Sobre()
+                {
+                    Console.WriteLine("\n*********************************************************");
+                    Console.WriteLine("Projeto Desenvolvido por: ");
+                    Console.WriteLine("Generation Brasil - generation@generation.org");
+                    Console.WriteLine("github.com/conteudoGeneration");
+                    Console.WriteLine("*********************************************************");
+
                 }
+
+                static void KeyPress()
+                {
+                    do
+                    {
+                        Console.Write("\nPressione Enter para Continuar...");
+                        consoleKeyInfo = Console.ReadKey();
+                    } while (consoleKeyInfo.Key != ConsoleKey.Enter);
+                }
+
             }
-        }
-
-        static void Sobre()
-        {
-            Console.WriteLine("\n*********************************************************");
-            Console.WriteLine("Projeto Desenvolvido por: ");
-            Console.WriteLine("Generation Brasil - generation@generation.org");
-            Console.WriteLine("github.com/conteudoGeneration");
-            Console.WriteLine("*********************************************************");
-
-        }
-
-        static void KeyPress()
-        {
-            do
-            {
-                Console.Write("\nPressione Enter para Continuar...");
-                consoleKeyInfo = Console.ReadKey();
-            } while (consoleKeyInfo.Key != ConsoleKey.Enter);
-        }
-
-    }
-}
+        } 

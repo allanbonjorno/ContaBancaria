@@ -17,6 +17,11 @@ namespace BancoSantoAndre.Model
         {
             this.limite = limite;
         }
+
+        public ContaCorrente(int numero, int agencia, int tipo, string titular, decimal saldo) : base(numero, agencia, tipo, titular, saldo)
+        {
+        }
+
         public decimal GetLimite()
         {
             return this.limite;
