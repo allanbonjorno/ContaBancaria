@@ -15,6 +15,7 @@ namespace BancoSantoAndre.Model
         private int tipo;
         private string titular = string.Empty;
         private decimal saldo;
+        
         /* Método Construtor */
         public Conta(int numero, int agencia, int tipo, string titular, decimal saldo)
         {
@@ -23,7 +24,12 @@ namespace BancoSantoAndre.Model
             this.tipo = tipo;
             this.titular = titular;
             this.saldo = saldo;
+            
         }
+
+        // polimorfismo de sobrecarga
+        
+
         /*Métodos Get e Set*/
         public int GetNumero()
         {
@@ -74,7 +80,7 @@ namespace BancoSantoAndre.Model
         {
             this.saldo = saldo;
         }
-        public bool Sacar(decimal valor)
+        public virtual bool Sacar(decimal valor)
         {
             if (this.saldo < valor)
             {
@@ -89,7 +95,7 @@ namespace BancoSantoAndre.Model
         {
             this.SetSaldo(this.saldo + valor);
         }
-        public void Visualizar()
+        public virtual void Visualizar()
         {
             string tipo = string.Empty;
             switch(this.tipo){
@@ -99,6 +105,7 @@ namespace BancoSantoAndre.Model
                     break;
                 case 2:
                     tipo = "Conta Poupança";
+                   
                     break;
                 }
                     Console.WriteLine("*********************************");
@@ -109,10 +116,14 @@ namespace BancoSantoAndre.Model
             Console.WriteLine($"Tipo da conta:{tipo}            ");
             Console.WriteLine($"Titular da conta:{this.titular} ");
             Console.WriteLine($"Saldo da conta: {this.saldo}    ");
+            
+          
+                
+            }
 
         }
 
 
     }
 
-}
+

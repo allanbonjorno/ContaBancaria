@@ -1,5 +1,6 @@
 ﻿using BancoSantoAndre.Model;
 using System;
+using System.Security.Cryptography;
 
 namespace BancoSantoAndre01
 {
@@ -12,7 +13,7 @@ namespace BancoSantoAndre01
         {
 
             int opcao;
-            Conta c1 = new Conta(1, 123, 1, "Allan", 1000000.00M);
+            /*Conta c1 = new Conta(1, 123, 1, "Allan", 1000000.00M);
             Console.WriteLine(c1.GetTitular());
             c1.Visualizar();
             c1.SetNumero(310001);
@@ -21,7 +22,18 @@ namespace BancoSantoAndre01
             c1.Visualizar();
             c1.Depositar(5000);
             c1.Visualizar();
-            Console.WriteLine(c1.GetNumero());
+            Console.WriteLine(c1.GetNumero()); */
+            ContaCorrente cc1 = new ContaCorrente(310001, 31, 1, "TIKA", 50000, 200);
+            Console.WriteLine(cc1.GetTitular());
+            cc1.Visualizar();
+            cc1.Sacar(50199);
+            cc1.Visualizar();
+            ContaPoupanca cc2 = new ContaPoupanca(310001, 31, 2, "TIKA", 50000, "31/07/1998");
+            cc2.Visualizar();
+
+
+
+
             while (true)
             {
                 Console.BackgroundColor = ConsoleColor.Black;
